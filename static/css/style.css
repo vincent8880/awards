@@ -6,13 +6,13 @@
         -moz-transition: padding-top 0.5s ease-in-out, padding-bottom 0.5s;
         transition: padding-top 0.5s ease-in-out, padding-bottom 0.5s;
         letter-spacing: 1px;
-        background: #b12ac3;
-        border-bottom: 1px solid #b12ac3;
+        background: #fff8e7 ;
+        border-bottom: 1px solid #fff8e7 ;
         /* height: 70px; */
     }
     #navMain .nav-link.active {
         outline: none;
-        background-color: #b12ac3;
+        background-color: #fff8e7 ;
     }
     #navMain .nav-link.active:hover {
         color: white;
@@ -21,8 +21,8 @@
     #navMain.navbar-shrink {
         padding-top: 10px;
         padding-bottom: 10px;
-        background: #b12ac3;
-        border-bottom: 1px solid#b12ac3;
+        background: #fff8e7 ;
+        border-bottom: 1px #fff8e7 ;
     }
     #navMain.navbar-shrink a {
         color: rgba(0, 0, 0, 0.973);
