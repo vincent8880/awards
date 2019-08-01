@@ -1,8 +1,12 @@
 from django.shortcuts import render
 from .models import Project
+from django.http import HttpResponse, Http404, HttpResponseRedirect
+from django.conf import settings
+import simplejson as json
+from django.http import JsonResponse
 
 # Create your views here.
-def index(request):
+def home(request):
     title = ' Home'
     projects = Project.get_all()
 
