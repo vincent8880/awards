@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container top">
+    <div class="row project-content">
+        {% for repo in repos %}
+        <div class="col-md-3 project-details">
+            <h3> <a href="{{repo.html_url}}" target="_blank">{{repo.name}}</a></h3>
+            <p> {{repo.description}} </p>
+            {% if repo.homepage != None %}
+            <p class="text-right"> <a href="{{repo.homepage}}">Live site</a> </p>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
