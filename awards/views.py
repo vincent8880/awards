@@ -4,7 +4,7 @@ from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.conf import settings
 import simplejson as json
 from django.http import JsonResponse
-
+import requests
 # Create your views here.
 def home(request):
     title = ' Home'
