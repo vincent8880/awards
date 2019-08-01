@@ -26,6 +26,7 @@ SECRET_KEY = 'zb6&59xa4$zo@jy%c@!qo@1v8*^!=4)!_!+1s(1!h)jyg6pl8j'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+GITHUB_API = config('GITHUB_API')
 
 
 # Application definition
