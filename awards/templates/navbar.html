@@ -1,3 +1,4 @@
+{% load static %}
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="navMain">
       <div class="container">
           <a class="smooth-scroll" href="/"><i class="fa fa-search"></i></a>
@@ -9,7 +10,9 @@
               <div class="container-fluid">
                   <div class="row">
                       <div class="col-md-12 nav-search">
-                            <h2>awwards</h2>
+                        <a class="navbar-brand" href="/">
+                            <img alt="Brand" src="{% static 'img/navbar.png' %}" width=150 height=35>
+                          </a>
                       </div>
                   </div>
               </div>
@@ -25,8 +28,9 @@
                                 <i class="fa fa-registered"></i> Register</a>
                      </li>    
              <li class="nav-item" style="font-size:18px;">
-                            <a class="btn btn-info" href="#">
-                            SUBMIT YOUR SITE!</a>
+                <a href="#" >
+                    <button class="btn btn-success" style=" margin-top: -6px;background-color:#49c5b6;border-radius:0;">SUBMIT YOUR SITE</button>
+                  </a>
                  </li>              
          </ul>
       </div>

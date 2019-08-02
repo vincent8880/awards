@@ -32,6 +32,14 @@
     display: flex;
     justify-content: center;
 }
+.navbar-brand{
+    display: flex;
+    justify-content: center;
+  }
+  .navbar-brand img{
+    margin-left: 70px;
+    float: none;
+  }
 header{
     height:100vh;
     margin-top:-1.5%;
