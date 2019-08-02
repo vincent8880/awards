@@ -46,4 +46,27 @@ header{
     font-size:150%;
     text-align:center;
 }
-
+img{
+    width:100%
+}
+.image-details{
+    text-align: center
+}
+.portfolio-details {
+    color: black;
+    padding: 2rem 0;
+  }
+  .project-details {
+    border-radius:1px;
+    border: 1px solid #dbd9d9;
+    background-color: white;
+    padding: 1rem;
+    /* box-shadow: 2px 4px 12px 2px #9c9c9c; */
+    margin: 1rem;
+    color: black;
+  }
+  .project-content {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+  }  
