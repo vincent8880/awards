@@ -7,7 +7,7 @@ By: Vincent Ododo
 This web-app allows a user to create a Profile,Country, and Projects that are all under his username allowing other users to vote for them and visit the particular projects site.
 
 ## Setup/Installation Requirements
-* Live site can be accessed from the following link https://awwards-donald.herokuapp.com/
+* Live site can be accessed from the following link https://vinawwwards.herokuapp.com/
 * Pre-configured Admin details are:
 Password: asdfasdf5
 Username: vincent
