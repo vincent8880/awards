@@ -1,51 +1,84 @@
-{% load bootstrap4 %}
-{% load static%}
+{% load bootstrap3 %}
+{% load static %}
+
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  {% block styles%}
-  {% bootstrap_css %}
-     
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-    <!-- Bootstrap core CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Material Design Bootstrap -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.3/css/mdb.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville&display=swap" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Catamaran' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Julius Sans One' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-    <link rel="shortcut icon" href="/static/img/instagram.png" type="image/x-icon">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    
-  {% endblock %}
-  
-</head>
-<body>
-    {% include "navbar.html" %}
-    
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    {% if title %}
+    <title>{{title}}</title>
+    {% else %}
+    <title>Awwwards - Website Awards - Best Web Design Trends</title>
+    {% endif %}
 
-    {% block content%}
-    {%endblock%}
+    {% block styles %}
+    {% bootstrap_css %}
+    <!-- <link rel="stylesheet" href="{% static 'css/navbar.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% endblock %}
 
-   
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.ico' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+  </head>
+  <body>
+
+    {% include 'navbar.html' %}
+    {% block content %}
+    <!-- <h1 class="text-center">Instagram</h1> -->
+
+    {% endblock %}
+
     {% block scripts %}
-    
-   
-    <!-- JQuery -->
-   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-   <!-- Bootstrap tooltips -->
-   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
-   <!-- Bootstrap core JavaScript -->
-   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-   <!-- MDB core JavaScript -->
-   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.3/js/mdb.min.js"></script>
-   {% bootstrap_javascript %}
-   <script src="{% static 'js/scripts.js' %}"></script>
-   {% endblock %}
-</body>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <script src= "{% static 'js/ajax.js'%}"></script> -->
+
+    {% bootstrap_javascript %}
+    {% endblock %}
+
+    {%block footer%}
+    <!-- Footer -->
+<footer class="page-footer font-small teal pt-4">
+
+  <!-- Footer Text -->
+  <div class="container-fluid text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-6 mt-md-0 mt-3">
+
+        <!-- Content -->
+        <h5 class="text-uppercase font-weight-bold">Footer text 1</h5>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita sapiente sint, nulla, nihil
+          repudiandae commodi voluptatibus corrupti animi sequi aliquid magnam debitis, maxime quam recusandae
+          harum esse fugiat. Itaque, culpa?</p>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none pb-3">
+
+      <!-- Grid column -->
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Text -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2019 Copyright:
+  Vincent Ododo
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+    {% endblock %}
+
+  </body>
 </html>

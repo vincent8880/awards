@@ -1,90 +1,210 @@
-{% extends 'base.html' %} 
-{%block content%}
-<div class="header">
-     <!--Carousel Wrapper-->
-<div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
-        <!--Indicators-->
-        <ol class="carousel-indicators">
-          <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
-          <li data-target="#carousel-example-2" data-slide-to="1"></li>
-          <li data-target="#carousel-example-2" data-slide-to="2"></li>
-        </ol>
-        <!--/.Indicators-->
-        <!--Slides-->
-        <div class="carousel-inner" role="listbox">
-          <div class="carousel-item active">
-            <div class="view">
-              <img class="d-block w-100" src="static/img/gallery.png"
-                alt="First slide">
-              <div class="mask rgba-black-light"></div>
-            </div>
-            <div class="carousel-caption">
-              <h3 class="h3-responsive">Light mask</h3>
-              <p>First text</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <!--Mask color-->
-            <div class="view">
-              <img class="d-block w-100" src="static/img/insta.png"
-                alt="Second slide">
-              <div class="mask rgba-black-strong"></div>
-            </div>
-            <div class="carousel-caption">
-              <h3 class="h3-responsive">Strong mask</h3>
-              <p>Secondary text</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <!--Mask color-->
-            <div class="view">
-              <img class="d-block w-100" src="static/img/delani.png"
-                alt="Third slide">
-              <div class="mask rgba-black-slight"></div>
-            </div>
-            <div class="carousel-caption">
-              <h3 class="h3-responsive">Slight mask</h3>
-              <p>Third text</p>
-            </div>
-          </div>
-        </div>
-        <!--/.Slides-->
-        <!--Controls-->
-        <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-        <!--/.Controls-->
-      </div>
-      <!--/.Carousel Wrapper-->
-</div>
-            <div class="container-fluid portfolio-details" id="projects">
-              <div class="row project-content">
-                  <div class="col-md-12 section-heading">
-                      <h1 class="text-center">Projects</h1>
-                  </div>
-                  {% for project in projects %}
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% load static %}
+{% load staticfiles %}
 
-              <div class="col-md-3 project-details">
-                <h4>
-                    <a href="{{project.url}}">{{project.name}}</a>
-                </h4>
-                <img src="{{project.homepage}}" alt="Image">
-                <p> {{project.description}} </p>
-                <a href="{{project.url}}" target="_blank">View site</a>
+{% block styles%}
+{% bootstrap_css %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{%endblock %}}
+
+{% block content %}
+
+    <div class="carousel-inner">
+      <!-- <div class="landingpage" style="background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url({% static 'img/cocaine.png'%}) fixed;"> -->
+      <div class="landingpage" >
+        <img src="{{caraousel.homepage}}" class="landingpage-img">
+        <div class="time">
+          <!-- <p><span class="bold">Site of the day </span>    {{date}}</p> -->
+        </div>
+
+        <div class="header">
+          <a href="/site/{{caraousel.id}}" style="color:white;text-decoration:none;">
+            <h1>{{caraousel.name}}</h1>
+          </a>
+        </div>
+        <div class="page-body">
+          <!-- <p>BY <span style="color:#49c5b6;text-transform:uppercase;">{{caraousel.username}}</span> FROM <span class="bold">{{caraousel.country}}</span> WITH 0.75</p> -->
+        </div>
+
+          <div class="middle">
+
+            <div class="circle" id="circle-a">
+            	<strong></strong>
+              <p class="rating">DESIGN</p>
             </div>
-                  {% empty %}
-                  <div class="col-md-12">
-                      <h3 class="text-center">There are no projects. Come later</h3>
-                  </div>
-                  {% endfor %}
-              </div>
+            <div class="circle" id="circle-b">
+            	<strong></strong>
+              <p class="rating">USABILITY</p>
+            </div>
+            <div class="circle" id="circle-c">
+            	<strong></strong>
+              <p class="rating">CREATIVITY</p>
+            </div>
+            <div class="circle" id="circle-d">
+            	<strong></strong>
+              <p class="rating">CONTENT</p>
+            </div>
+
           </div>
- {%block footer%}
-  
- {%endblock%}       
-{%endblock%}
+      </div>
+    </div>
+
+<div class="container headers">
+    <h4 style="float:left;"><span class="bold" >Sites of the Day</span>  Previous Winners</h4>
+    <!-- <h4 style="float:right"><span><span class="bold">Mobile Excellence</span>  Recognized by Google</span></h4> -->
+</div>
+<div class="pages">
+<div class="row">
+  {% for winner in winners %}
+  <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+    <div class="card" style="width: 40.2rem;">
+  <img class="card-img-top img-responsive" src="{{winner.homepage}}" alt="Card image cap" responsive>
+  <div class="card-body">
+      <a href="{{winner.url}}" target="_blank">View site</a>
+    <!-- <p class="card-text">From {{winner.country}}<span class="date">{{winner.post_date}}</span></p> -->
+  </div>
+  <div class="card-footer ">
+    <div class="user-image">
+    <a href="/site/{{winner.id}}" target="_blank">Rate</a>
+    <img src="{{winner.avatar}}" class="gallery-image" alt=""  width=8 height=8>
+  </div>
+  </div>
+</div>
+  </div>
+  {% endfor %}
+</div>
+</div>
+
+<div class="container headers">
+    <h4><span class="bold">Nominees</span>  We need your vote!</h4>
+</div> 
+
+<div class="pages">
+<div class="row">
+  {% for nominee in nominees %}
+  <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+    <div class="card" style="width: 40.2rem;">
+  <img class="card-img-top img-responsive" src="{{nominee.homepage}}" alt="Card image cap" responsive>
+  <div class="card-body">
+    <a href="{{nominee.url}}" target="_blank">View site</a>
+    <!-- <p class="card-text">From {{nominee.country}}<span class="date">{{nominee.post_date}}</span></p> -->
+  </div>
+  <div class="card-footer ">
+    <div class="user-image">
+    <a href="/site/{{nominee.id}}" target="_blank">Rate </a>  
+    <img src="{{nominee.avatar.url}}" class="gallery-image" alt=""  width=8 height=8>
+  </div>
+  </div>
+</div>
+  </div>
+  {% endfor %} 
+
+ </div>
+</div>
+
+
+<!-- <div class="container headers">
+    <h4><span class="bold">Directory</span>  Find the Best Digital Agencies & Professionals</h4>
+</div>
+
+<div class="pages">
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+    <div class="card" style="height:44.6rem;width: 40.2rem;">
+  <!-- <img class="card-img-top img-responsive" src="{% static 'img/trial1.png'%}" alt="Card image cap" responsive> -->
+  <!-- <div class="card-body">
+    <h5 class="card-title" style="line-height:28px;font-size:15px;">Professional Directory</h5>
+    <p class="card-text professional">Discover the best agencies and Professionals in <span style="color:#49c5b6">Kenya</span></p>
+    <br><br>
+    <a href="{% url 'directory' %}" >
+      <button class="btn btn-default btn-sm" style="border-radius:18%;">Discover</button>
+    </a>
+  </div>
+</div>
+  </div> --> 
+
+  <!-- {% for directory in directories %}
+  <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+    <div class="card" style="width: 40.2rem;">
+  <img class="card-img-top img-responsive" src="{{directory.landing_page.url}}" alt="Card image cap" responsive>
+  <div class="card-body">
+    <a href="/site/{{directory.id}}" style="color:black;text-decoration:none;">
+      <h5 class="card-title" style="line-height:28px;">{{directory.title}}</h5>
+    </a>
+    <p class="card-text">From {{directory.country}}<span class="date">{{directory.post_date}}</span></p>
+  </div>
+  <div class="card-footer ">
+    <div class="user-image">
+    <img src="{{directory.avatar.url}}" class="gallery-image" alt=""  width=8 height=8>
+    <a href="/user/{{directory.username}}" style="color:black;text-decoration:none;margin:auto;">
+      <p style="font-size: 13px; font-weight: lighter;margin:auto; padding:2px;text-transform: uppercase;">{{directory.username}}</p>
+    </a>
+  </div>
+  </div>
+</div>
+  </div>
+  {% endfor %} -->
+
+<!-- </div>
+</div> -->
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"> </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-circle-progress/1.1.3/circle-progress.min.js"></script>
+
+<script>
+/**
+*Exampe from https://kottenator.github.io/jquery-circle-progress/
+*/
+var progressBarOptions = {
+	startAngle: -1.55,
+	size: 100,
+    value: {{caraousel.design}},
+    fill: {
+		color: 'Chocolate'
+	}
+}
+
+$('.circle').circleProgress(progressBarOptions).on('circle-animation-progress', function(event, progress, stepValue) {
+	$(this).find('strong').text(String((stepValue/10).toFixed(2)));
+});
+
+$('#circle-b').circleProgress({
+	value : {{caraousel.usability}},
+	fill: {
+		color: 'Khaki'
+	}
+});
+
+$('#circle-c').circleProgress({
+	value : {{caraousel.creativity}},
+	fill: {
+		color: 'DarkTurquoise'
+	}
+});
+$('#circle-d').circleProgress({
+	value : {{caraousel.content}},
+	fill: {
+		color: 'SteelBlue'
+	}
+});
+
+
+// $.each($('.circle'), function(){
+// var price = $(this).html();
+// $(this).html(value.replace(/(\d*\.)(\d*)/,'<span style="font-size:16px;">$1</span><span style="font-size:22px;">$2</span><span style="font-size:14px;">$3</span>'));
+// });
+
+
+</script>
+
+{% endblock %}
